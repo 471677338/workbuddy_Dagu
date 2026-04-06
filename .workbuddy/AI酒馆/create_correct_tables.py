@@ -1,0 +1,243 @@
+import json
+
+# 准备新的表格数据
+new_data = {
+  "sheet_qq7t1hP0": {
+    "uid": "sheet_qq7t1hP0",
+    "name": "时空表格",
+    "domain": "chat",
+    "type": "dynamic",
+    "enable": True,
+    "required": True,
+    "tochat": True,
+    "triggerSend": False,
+    "triggerSendDeep": 1,
+    "config": {
+      "toChat": True,
+      "useCustomStyle": False,
+      "triggerSendToChat": False,
+      "alternateTable": False,
+      "insertTable": False,
+      "alternateLevel": 0,
+      "skipTop": False,
+      "selectedCustomStyleKey": "",
+      "customStyles": {
+        "自定义样式": {
+          "mode": "regex",
+          "basedOn": "html",
+          "regex": "/(^[\\s\\S]*$)/g",
+          "replace": "$1",
+          "replaceDivide": ""
+        }
+      }
+    },
+    "sourceData": {
+      "value": ""
+    },
+    "content": [
+      ["", "日期", "时间", "地点（当前描写）", "此地角色"],
+      ["", "启程前夕", "傍晚", "塔吉城>安静旅馆>餐厅", "尤里西斯、艾娅、拉丝普汀"],
+      ["", "觉醒决心夜", "深夜", "塔吉城>旅馆房间>窗边", "尤里西斯、艾娅"],
+      ["", "出发采购日", "清晨", "塔吉城>集市", "尤里西斯、艾娅、拉丝普汀"],
+      ["", "启程灰色山谷", "午后", "塔吉城城门至灰色山谷途中", "尤里西斯、拉丝普汀、艾娅"],
+      ["", "矿洞探险日", "傍晚至次日", "灰色山谷>废弃矿洞入口与内部", "尤里西斯、拉丝普汀、艾娅"]
+    ]
+  },
+  "sheet_SGpYdemN": {
+    "uid": "sheet_SGpYdemN",
+    "name": "角色特征表格",
+    "domain": "chat",
+    "type": "dynamic",
+    "enable": True,
+    "required": True,
+    "tochat": True,
+    "triggerSend": False,
+    "triggerSendDeep": 1,
+    "config": {
+      "toChat": True,
+      "useCustomStyle": False,
+      "triggerSendToChat": False,
+      "alternateTable": False,
+      "insertTable": False,
+      "alternateLevel": 0,
+      "skipTop": False,
+      "selectedCustomStyleKey": "",
+      "customStyles": {
+        "自定义样式": {
+          "mode": "regex",
+          "basedOn": "html",
+          "regex": "/(^[\\s\\S]*$)/g",
+          "replace": "$1",
+          "replaceDivide": ""
+        }
+      }
+    },
+    "sourceData": {
+      "value": ""
+    },
+    "content": [
+      ["", "角色名", "身体特征", "性格", "职业", "爱好", "喜欢的事物", "住所", "其他重要信息"],
+      ["", "尤里西斯", "黑色神官袍/银色长发/温和俊美/身材修长", "温柔善良/冷静智慧/责任心强/内向害羞/执着梦想", "魔王继承者/神官目标", "学习魔法/阅读/思考", "保护同伴/成为神官/光明魔法", "米拉村（养母家）/塔吉城旅馆", "穿越者/体内有魔王之力/正在学习炼金术/与法丽签订主仆契约"],
+      ["", "艾娅", "银白色长发/紫色眼眸/娇小可爱/魔使形态", "绝对忠诚/聪慧狡黠/活泼恶作剧/说话暧昧大胆/对尤里西斯深沉爱意", "守护魔使", "陪伴尤里西斯/引导他成长", "尤里西斯/魅惑技能", "尤里西斯契约空间", "第八使徒/对主人绝对服从/擅长分析策略/经常进行魔王教育"],
+      ["", "拉丝普汀", "魔法师袍/金色长发/身材高挑/冷静美艳", "坚强独立/冷静理智/自信从容/待人礼貌/对爱情真挚热烈", "三系魔导士", "魔法研究/独自旅行", "古代语魔法/有深度的对话", "云游四方/目前同行", "掌握火/水/风三系魔法/与尤里西斯结伴同行/逐渐产生好感"],
+      ["", "坎卡", "佣兵装/高大健壮/豪爽笑容", "热情直爽/讲义气/风流不负责任/冲动", "佣兵", "喝酒/搭讪美女", "自由奔放的生活", "云游各国", "尤里西斯的朋友/经常惹麻烦/重色轻友"],
+      ["", "拉娜", "朴素家居服/成熟美艳/温柔笑容/魅魔血统不自知", "迷糊天然/母爱过剩/纯真善良/有些脱线", "米拉村居民/尤里西斯养母", "照顾尤里西斯/家务/奇怪穿搭", "儿子/家庭温暖", "米拉村", "尤里西斯的养母/拥有魅魔血统但完全不知/极度溺爱儿子"],
+      ["", "拉夏", "训练服/棕色短发/活泼元气/身材丰满", "活泼开朗/直率坦诚/假小子/爱恨分明/花痴", "剑士/勇者目标", "修炼剑术/寻找尤里西斯", "尤里西斯/成为勇者", "云游修炼", "尤里西斯青梅竹马/单方面认定是未婚妻/自称勇者/路痴"]
+    ]
+  },
+  "sheet_domJoLJC": {
+    "uid": "sheet_domJoLJC",
+    "name": "角色与<user>社交表格",
+    "domain": "chat",
+    "type": "dynamic",
+    "enable": True,
+    "required": True,
+    "tochat": True,
+    "triggerSend": False,
+    "triggerSendDeep": 1,
+    "config": {
+      "toChat": True,
+      "useCustomStyle": False,
+      "triggerSendToChat": False,
+      "alternateTable": False,
+      "insertTable": False,
+      "alternateLevel": 0,
+      "skipTop": False,
+      "selectedCustomStyleKey": "",
+      "customStyles": {
+        "自定义样式": {
+          "mode": "regex",
+          "basedOn": "html",
+          "regex": "/(^[\\s\\S]*$)/g",
+          "replace": "$1",
+          "replaceDivide": ""
+        }
+      }
+    },
+    "sourceData": {
+      "value": ""
+    },
+    "content": [
+      ["", "角色名", "对尤里西斯关系", "对尤里西斯态度", "对尤里西斯好感"],
+      ["", "艾娅", "主人/契约伙伴/灵魂伴侣", "绝对忠诚/深沉爱意/引导培育", "100"],
+      ["", "拉丝普汀", "同伴/旅伴/潜在恋人", "逐渐认可/欣赏/温柔", "45"],
+      ["", "坎卡", "朋友/损友", "关心/吐槽/講義气", "60"],
+      ["", "拉娜", "养母/家人", "溺爱/依赖/亲情", "100"],
+      ["", "拉夏", "青梅竹马/未婚妻（自称）", "执着爱慕/热情主动", "80"],
+      ["", "法丽", "主人/契约主", "第八使徒/绝对服从/依赖", "70"]
+    ]
+  },
+  "sheet_CdB59ocY": {
+    "uid": "sheet_CdB59ocY",
+    "name": "任务、命令或者约定表格",
+    "domain": "chat",
+    "type": "dynamic",
+    "enable": True,
+    "required": False,
+    "tochat": True,
+    "triggerSend": False,
+    "triggerSendDeep": 1,
+    "config": {
+      "toChat": True,
+      "useCustomStyle": False,
+      "triggerSendToChat": False,
+      "alternateTable": False,
+      "insertTable": False,
+      "alternateLevel": 0,
+      "skipTop": False,
+      "selectedCustomStyleKey": "",
+      "customStyles": {
+        "自定义样式": {
+          "mode": "regex",
+          "basedOn": "html",
+          "regex": "/(^[\\s\\S]*$)/g",
+          "replace": "$1",
+          "replaceDivide": ""
+        }
+      }
+    },
+    "sourceData": {
+      "value": ""
+    },
+    "content": [
+      ["", "角色", "任务", "地点", "持续时间"],
+      ["", "尤里西斯、艾娅、拉丝普汀", "前往索菲亚王国", "塔吉城至索菲亚王国途中", "进行中"],
+      ["", "尤里西斯", "学习炼金术与黑暗力量", "旅途/旅馆房间", "长期"],
+      ["", "尤里西斯", "探索废弃矿洞", "灰色山谷矿洞", "进行中"],
+      ["", "尤里西斯", "救援被困的矿工之子", "灰色山谷矿洞内部", "进行中"],
+      ["", "尤里西斯", "保护法丽（第八使徒）", "拉法丝伯爵府", "长期契约"]
+    ]
+  },
+  "sheet_mLF3HD7T": {
+    "meta": {
+      "customMeta": {},
+      "type": "chatSheets",
+      "version": 1
+    },
+    "content": [
+      ["", "角色", "事件简述", "日期", "地点", "情绪"],
+      ["1", "尤里西斯、艾娅、拉丝普汀", "坎卡私情引发骚乱，尤里西斯拉着拉丝普汀果断开溜。三人入住旅馆安顿，饭桌上笑谈坎卡风流趣事。饭后讨论前往索菲亚王国的路线与物资准备。拉丝普汀回房后艾娅展开魔王教育，从现实分析尤里西斯目标的困境，引导他认识到掌握黑暗力量的必要性。", "启程前夕", "塔吉城旅馆", "轻松/谋划"],
+      ["2", "尤里西斯、艾娅", "尤里西斯独自窗边梳理处境，在神官梦想与保护同伴之间做出决断，选择直面黑暗力量。随即要求艾娅拿出炼金材料完成第一次尝试，并温柔抱着艾娅将她哄睡。入睡后梦境先回到与养母拉娜在米拉村的温馨日常，随后跳转到与青梅竹马拉夏共同修炼剑术的明媚午后。", "觉醒决心夜", "塔吉城旅馆房间", "挣扎/成长/温馨"],
+      ["3", "尤里西斯、艾娅、拉丝普汀", "三人兵分两路前往集市采购物资。尤里西斯凭借对物价的了解与摊主展开一番讨价还价，买下硬面包与奶酪。随后在市集角落偶遇神秘小贩，购入一张标有废弃矿洞位置的奇怪地图，令此行凭添一份探索色彩。两队于城门顺利汇合，物资齐备。", "出发采购日", "塔吉城集市", "轻松/惊喜"],
+      ["4", "尤里西斯、拉丝普汀、艾娅", "踏上灰色山谷的旅途后，尤里西斯尝试用星空魔法照明，却意外召唤出满天闪光蝴蝶逗笑了拉丝普汀。他顺势操控最后一只蝴蝶停在她指尖作为启程礼物，浪漫氛围弥漫。入夜宿营守夜时，因寒意无意识靠近的拉丝普汀令尤里西斯心跳加速，两人间的暧昧悄然升温。", "启程灰色山谷", "城门至灰色山谷途中", "轻松/浪漫/暧昧"],
+      ["5", "尤里西斯、拉丝普汀、艾娅", "晨间关怀拉丝普汀睡眠后继续赶路，击退低级魔兽并探讨古代语魔法。傍晚在矿洞入口扎营，翌晨她再度靠肩，尤里西斯趁机偷亲。矿洞中发现被困的矿工之子迪克与莉莉，以星空幻象安抚并制定救援计划。黑暗中拉丝普汀绊倒被抱住，暧昧情愫再度加深。", "矿洞探险日", "灰色山谷矿洞入口与内部", "温柔/勇气/暧昧"]
+    ],
+    "id": "sheet_mLF3HD7T",
+    "name": "重要事件历史表格"
+  },
+  "sheet_RDqT9ACg": {
+    "uid": "sheet_RDqT9ACg",
+    "name": "重要物品表格",
+    "domain": "chat",
+    "type": "dynamic",
+    "enable": True,
+    "required": False,
+    "tochat": True,
+    "triggerSend": False,
+    "triggerSendDeep": 1,
+    "config": {
+      "toChat": True,
+      "useCustomStyle": False,
+      "triggerSendToChat": False,
+      "alternateTable": False,
+      "insertTable": False,
+      "alternateLevel": 0,
+      "skipTop": False,
+      "selectedCustomStyleKey": "",
+      "customStyles": {
+        "自定义样式": {
+          "mode": "regex",
+          "basedOn": "html",
+          "regex": "/(^[\\s\\S]*$)/g",
+          "replace": "$1",
+          "replaceDivide": ""
+        }
+      }
+    },
+    "sourceData": {
+      "value": ""
+    },
+    "content": [
+      ["", "拥有人", "物品描述", "物品名", "重要原因"],
+      ["", "尤里西斯", "蕴含黑暗力量的魔法书", "魔王之书", "继承者证明/黑暗力量源泉"],
+      ["", "尤里西斯", "标注废弃矿洞位置的皮卷地图", "神秘地图", "探险指引/意外发现"],
+      ["", "尤里西斯", "法丽赠送的八音盒", "八音盒", "第八使徒契约信物"],
+      ["", "尤里西斯", "炼金术基础材料与配方", "炼金材料包", "学习黑暗炼金术工具"],
+      ["", "尤里西斯", "星空魔法凝聚的闪光蝴蝶", "星空蝴蝶", "浪漫礼物/魔法练习成果"]
+    ]
+  },
+  "mate": {
+    "type": "chatSheets",
+    "version": 1
+  }
+}
+
+# 保存美化版本
+with open(r"G:\work_software\claw\.workbuddy\ai酒馆\table_data_v2_correct_formatted.json", 'w', encoding='utf-8') as f:
+    json.dump(new_data, f, ensure_ascii=False, indent=2)
+
+# 保存压缩版本
+with open(r"G:\work_software\claw\.workbuddy\ai酒馆\table_data_v2_correct_compressed.json", 'w', encoding='utf-8') as f:
+    json.dump(new_data, f, ensure_ascii=False, separators=(',', ':'))
+
+print("Done! Created corrected tables for 魔王神官和勇者美少女")

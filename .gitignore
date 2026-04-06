@@ -27,10 +27,10 @@ build/
 *.pt
 *.pth
 
-# 猫猫工作区内存目录（跨会话上下文，非代码）
-.workbuddy/
-
-# 临时草稿脚本
-tts_debug.py
-tts_story.py
-
+# .workbuddy 目录
+# 跟踪：脚本、comfyui_api workflow、古籍、笔记、AI酒馆角色设定
+# 排除：memory（个人数据）、tts_output（生成物）、大目录（4GB级别）
+.workbuddy/memory/
+.workbuddy/comfyui_api/tts_output/
+.workbuddy/AI工具/        # ~2GB，外部工具太大不放git
+.workbuddy/AI酒馆/SillyTavern-re/  # ~2GB，完整SillyTavern不放git
