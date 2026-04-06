@@ -109,7 +109,7 @@
   },
   "18": {
     "inputs": {
-      "text": "worst quality, low quality, bad quality, bad anatomy, blurry, deformed, ugly, nsfw, explicit",
+      "text": "worst quality, low quality, bad quality, bad anatomy, blurry, deformed, ugly, nsfw, explicit, watermark, text, logo, signature",
       "嵌入提示词": null,
       "clip": ["1", 0]
     },
