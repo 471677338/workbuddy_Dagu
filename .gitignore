@@ -26,3 +26,11 @@ build/
 *.ckpt
 *.pt
 *.pth
+
+# 猫猫工作区内存目录（跨会话上下文，非代码）
+.workbuddy/
+
+# 临时草稿脚本
+tts_debug.py
+tts_story.py
+
