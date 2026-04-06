@@ -28,9 +28,7 @@ build/
 *.pth
 
 # .workbuddy 目录
-# 跟踪：脚本、comfyui_api workflow、古籍、笔记、AI酒馆角色设定
-# 排除：memory（个人数据）、tts_output（生成物）、大目录（4GB级别）
-.workbuddy/memory/
-.workbuddy/comfyui_api/tts_output/
-.workbuddy/AI工具/        # ~2GB，外部工具太大不放git
-.workbuddy/AI酒馆/SillyTavern-re/  # ~2GB，完整SillyTavern不放git
+# 只追踪：脚本/（主力脚本）
+# 排除：其他所有个人数据和工作目录
+.workbuddy/*
+!.workbuddy/脚本/
