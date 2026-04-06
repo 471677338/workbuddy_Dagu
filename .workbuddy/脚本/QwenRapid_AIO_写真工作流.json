@@ -1,0 +1,156 @@
+{
+  "1": {
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "7",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "2": {
+    "inputs": {
+      "seed": 1040137165155870,
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "sa_solver",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "7",
+        0
+      ],
+      "positive": [
+        "15",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "conditioning": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "4": {
+    "inputs": {
+      "pixels": [
+        "5",
+        0
+      ],
+      "vae": [
+        "7",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "megapixels": 1,
+      "resolution_steps": 1,
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "缩放图像（像素）"
+    }
+  },
+  "7": {
+    "inputs": {
+      "ckpt_name": "Qwen-Rapid-AIO-NSFW-v18.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "8": {
+    "inputs": {
+      "image": "QQ浏览器截图20260222211259.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "10": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "12": {
+    "inputs": {
+      "text": "This is a vibrant, colorized photograph depicting a historical scene of a horse-drawn carriage procession come to life. The image features a lively group of people and magnificent horses in the foreground, arranged in an elegant line. The people are dressed in rich late 19th to early 20th-century attire - men wear deep navy and charcoal long coats with crisp white shirts, while their hats shine in polished black and brown leather. The horses gleam in various shades of chestnut, bay and dapple gray, their harnesses adorned with gleaming brass fittings. The carriages are painted in luxurious hues of forest green, burgundy and royal blue, with their spoked wheels finished in glossy black and ornate gold detailing catching the sunlight.\n\nIn the background, two stately buildings stand proudly. The left building is a two-story cream-colored structure with hunter green shutters framing its tall windows. The right building stretches longer, its pale sandstone façade glowing warmly with arched windows trimmed in terracotta red. Both structures showcase classic architectural details typical of the period, with decorative cornices and wrought iron accents. Behind them, bare trees with delicate gray branches reach into a soft blue sky dotted with wispy clouds, suggesting a crisp winter morning.\n\nThe ground comes alive with textures - packed earth in warm ochre tones scattered with pebbles that glint silver-gray in the light. The photograph maintains its historical charm while now bursting with color: the rich brown leather of boots, the scarlet flash of a lady's scarf, the golden glow of carriage lamps. The symmetrical composition remains striking, with the procession centered perfectly, allowing every colorful detail to shine while preserving the nostalgic atmosphere of this beautifully preserved moment in time."
+    },
+    "class_type": "CR Text",
+    "_meta": {
+      "title": "文本"
+    }
+  },
+  "15": {
+    "inputs": {
+      "prompt": [
+        "12",
+        0
+      ],
+      "嵌入提示词": null,
+      "clip": [
+        "7",
+        1
+      ],
+      "vae": [
+        "7",
+        2
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "TextEncodeQwenImageEdit",
+    "_meta": {
+      "title": "文本编码（QwenImageEdit）"
+    }
+  }
+}
