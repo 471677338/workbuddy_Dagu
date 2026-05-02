@@ -1,0 +1,152 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "Qwen-Rapid-AIO-NSFW-v18.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "\n\"subject\": \n\"identity\": \"12岁金发少女，贵族千金气质，天真无邪\",\n\"action\": \"双手轻握在胸前，微微歪头，露出甜美的笑容\",\n\"details\": \n\"外貌\": \"金黄色及腰长发，蔚蓝色大眼睛，清澈纯真，鹅蛋脸，雪白细腻肌肤，纤细柳眉，小巧挺鼻，樱桃色嘴唇\",\n\"衣着\": \"浅紫色连衣裙，洁白蕾丝装饰，白色蝴蝶结点缀，白色小皮鞋\",\n\"配饰\": \"白色蝴蝶发饰扎发，右手腕佩戴紫水晶手镯\",\n\"体型\": \"身高142cm，纤细娇小的少女体型，四肢纤细修长\"\n\n,\n\"scene\": \n\"location\": \"欧式贵族庄园花园，繁花盛开的玫瑰拱门，远处可见古典城堡\",\n\"atmosphere\": \"阳光明媚的春日午后，温暖而梦幻，如同童话世界\"\n,\n\"composition\": \n\"angle\": \"微仰视角，突出少女的可爱与优雅\",\n\"depth_of_field\": \"中景，背景虚化突出人物\"\n,\n\"lighting\": \n\"source\": \"自然阳光，逆光效果，金色发丝边缘光\",\n\"tone\": \"暖色调，柔和明亮，金色与紫色交织\"\n,\n\"style\": \n\"art_type\": \"精致动漫风格，细腻赛璐珞上色，童话插画质感\",\n\"quality\": \"8K高分辨率，精细线条，丰富色彩\"\n,\n\"parameters\": \n\"width_ratio\": 3,\n\"height_ratio\": 4\n\n",
+      "嵌入提示词": null,
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "blurry ugly bad, deformed, extra fingers, bad hands, bad feet, low quality, worst quality",
+      "嵌入提示词": null,
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 768,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "6": {
+    "inputs": {
+      "seed": 726745728130936,
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "10": {
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "13": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1.5,
+      "samples": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "缩放Latent（比例）"
+    }
+  },
+  "14": {
+    "inputs": {
+      "seed": 289713160483141,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.3,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  }
+}

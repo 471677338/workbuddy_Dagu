@@ -1,0 +1,73 @@
+{
+  "15": {
+    "inputs": {
+      "purge_cache": true,
+      "purge_models": true,
+      "anything": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: PurgeVRAM V2",
+    "_meta": {
+      "title": "图层工具：清除VRAM V2"
+    }
+  },
+  "19": {
+    "inputs": {
+      "audio": "Desktop 2026.02.03 - 18.52.51.08.mp3",
+      "audioUI": ""
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "加载音频"
+    }
+  },
+  "24": {
+    "inputs": {
+      "model_path": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+      "precision": "bf16",
+      "device": "cuda",
+      "attn_implementation": "sdpa",
+      "auto_download": false,
+      "download_source": "ModelScope"
+    },
+    "class_type": "TDQwen3TTSModelLoader",
+    "_meta": {
+      "title": "TD Qwen3 TTS Model Loader"
+    }
+  },
+  "30": {
+    "inputs": {
+      "audioUI": "",
+      "audio": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "PreviewAudio",
+    "_meta": {
+      "title": "预览音频"
+    }
+  },
+  "31": {
+    "inputs": {
+      "text": "如果启用了x_vecotr_only_mode（仅用声纹模式），就只会参考音频中的声纹进行生成text中的内容。 如果没有启用这个仅用声纹模式，那就会参考ref_text中的语气和参考音频一起 进行生成text中的内容",
+      "language": "Chinese",
+      "ref_text": "",
+      "x_vector_only_mode": true,
+      "model": [
+        "24",
+        0
+      ],
+      "ref_audio": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "TDQwen3TTSVoiceClone",
+    "_meta": {
+      "title": "TD Qwen3 TTS Voice Clone"
+    }
+  }
+}

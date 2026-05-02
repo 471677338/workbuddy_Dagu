@@ -1,0 +1,152 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "Qwen-Rapid-AIO-NSFW-v18.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "GitHub Trending 十大热门项目报纸排版风格，设计如同《纽约时报》或《卫报》数字版头版全景截图。整体呈经典报纸多栏网格布局，黑色细线分隔各内容区块。主标题区居顶，字体厚重现代：大标题「GitHub Trending」配合副标题「Top 10 Most Popular Open Source Projects」。主图区占据左半大部分空间，展示首屏十大项目缩略图网格，每个项目格子内显示项目名、编程语言图标、star数和简短描述。右栏刊登排名第1到第3的大幅项目介绍，包括项目名（freeCodeCamp、openclaw、awesome-python）用大字体加粗、star数（44k、34k、29k）用绿色强调色标注，下方附一行一句话简介。每篇文章区域均有细线边框包围。底部横排小卡片展示排名第4到第10的项目，每张卡片含项目名、star数和语言标签，如同报纸底部信息栏。整体背景为浅暖白色纸张纹理，墨黑文字，GitHub绿色（#238636）作为数据强调色，无渐变无特效，如同专业报纸版面的高解析度扫描图，8K超细节，光线追踪质感",
+      "嵌入提示词": null,
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "blurry ugly bad, 坏手，坏脚，错误的手指，错误的脚趾",
+      "嵌入提示词": null,
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 768,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "6": {
+    "inputs": {
+      "seed": 127332126350415,
+      "steps": 25,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.5,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "10": {
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "13": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1.5,
+      "samples": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "缩放Latent（比例）"
+    }
+  },
+  "14": {
+    "inputs": {
+      "seed": 585360109788992,
+      "steps": 25,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.5,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  }
+}
